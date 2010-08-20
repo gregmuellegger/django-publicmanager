@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 class UltraMagicString(object):
@@ -51,7 +51,6 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
     ],
-    packages = find_packages('src'),
-    package_dir = {'': 'src'},
+    packages = ['django_publicmanager'],
     install_requires = ['setuptools'],
 )
