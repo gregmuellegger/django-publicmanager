@@ -54,3 +54,13 @@ class PublicQuerySet(QuerySet):
         if self.status_attr and self.status_values:
             clone = clone.filter(**{self.status_attr + '__in': self.status_values})
         return clone
+
+    def _clone(self, *args, **kwargs):
+        clone = super(PublicQuerySet, self)._clone(*args, **kwargs)
+        for attr in (
+            'is_public_attr',
+            'pub_date_attr',
+            'status_attr',
+            'status_values'):
+            setattr(clone, attr, getattr(self, attr))
+        return clone

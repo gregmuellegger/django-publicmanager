@@ -142,6 +142,16 @@ class TestGenericPublicManager(DefaultTestCase):
             set(qs))
         self.assertEqual(2, len(qs))
 
+    def test_queryset_of_manager(self):
+        qs = PublicDefault.generic.all()
+        self.assertEqual(4, len(qs))
+        qs = qs.public()
+        self.assertEqual(1, len(qs))
+
+        # previous bug with queryset clones
+        qs = PublicDefault.generic.filter(pk__gt=0).public()
+        self.assertEqual(1, len(qs))
+
 
 class TestPublicOnlyManager(DefaultTestCase):
     def test_default_attr_names(self):
