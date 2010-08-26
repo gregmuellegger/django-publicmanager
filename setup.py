@@ -33,7 +33,7 @@ long_description = UltraMagicString(u'\n\n'.join((
 
 setup(
     name = 'django-publicmanager',
-    version = '0.9.1',
+    version = '0.9.2',
     url = 'https://github.com/gregor-muellegger/django-publicmanager',
     license = 'BSD',
     description = 'Custom managers that handle public availability of database '
